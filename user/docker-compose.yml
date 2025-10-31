@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: user-ecomm
+    restart: always
+    ports:
+      - "12349:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: users
+      MONGO_INITDB_ROOT_PASSWORD: users
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

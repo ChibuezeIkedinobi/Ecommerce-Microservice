@@ -1,0 +1,12 @@
+services:
+  database:
+    image: bitnami/postgresql:latest  # Docker image for PostgreSQL
+    restart: always
+    environment:
+      POSTGRES_USER: order
+      POSTGRES_PASSWORD: order
+      POSTGRES_DB: order
+    ports:
+      - 12347:5432
+
+

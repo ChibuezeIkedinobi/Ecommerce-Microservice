@@ -1,0 +1,24 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: configServer
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///Users/bueze/Desktop/Ecomm/configServer/src/main/resources/config
