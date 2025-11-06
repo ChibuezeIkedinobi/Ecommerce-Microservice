@@ -3,6 +3,7 @@ package com.ecommerce.order.clients;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.transport.Propagator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -20,17 +21,17 @@ public class RestClientConfig {
 //    @Autowired(required = false)
 //    private Propagator propagator;
 
-//    @Bean
-//    @LoadBalanced
-//    public RestClient.Builder restClientBuilder() {
-//        RestClient.Builder builder = RestClient.builder();
-//
+    @Bean
+    @LoadBalanced
+    public RestClient.Builder restClientBuilder() {
+        RestClient.Builder builder = RestClient.builder();
+
 //        if (observationRegistry != null){
 //            builder.requestInterceptor(createTracingInterceptor());
 //        }
-//
-//        return builder;
-//    }
+
+        return builder;
+    }
 
 //    private ClientHttpRequestInterceptor createTracingInterceptor() {
 //        return ((request, body, execution) -> {

@@ -28,7 +28,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest) {
-        return new ResponseEntity<ProductResponse>(productService.createProduct(productRequest),
+        return new ResponseEntity<>(productService.createProduct(productRequest),
                 HttpStatus.CREATED);
     }
 
@@ -38,11 +38,10 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> getProductById(
-            @PathVariable String id) {
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable String id) {
         return productService.getProductById(id)
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(ResponseEntity.notFound()::build);
     }
 
     @PutMapping("/{id}")

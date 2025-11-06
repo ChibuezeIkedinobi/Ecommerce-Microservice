@@ -5,3 +5,10 @@ spring:
     import: optional:configserver:http://localhost:7777
 server:
   port: 9091
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rolling policy:
+      max-file-size: 5MB
+      max-history: 7
