@@ -12,3 +12,10 @@ services:
     volumes:
       - ./db/my.cnf:/etc/mysql/my.cnf  # Correct volume mapping
 
+#  zipkin:
+#    image: openzipkin/zipkin
+#    container_name: zipkin-product
+#    ports:
+#      - 9411:9411
+#    networks:
+#      - backend
